@@ -10,8 +10,8 @@ A single-page static site (HTML, CSS and a little JavaScript) with no build step
 
 ```
 index.html      page content
-styles.css      layout, light/dark theme, responsive rules
-script.js       mobile menu, active-section highlight, copy buttons
+styles.css      bento layout, dark/light themes, responsive rules
+script.js       menu, theme toggle, active section, card spotlight, copy buttons
 favicon.svg     "RV" monogram
 assets/         resume PDF
 ```

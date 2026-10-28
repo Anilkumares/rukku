@@ -9,119 +9,154 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Rukma V S · Software Test Engineer">
   <meta property="og:description" content="QA tester for enterprise web and mobile apps: functional, regression and API testing, SQL verification and Playwright automation.">
-  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0a0b10">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <script>
+    /* Apply a saved theme choice before paint to avoid a flash */
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="mark" aria-label="Rukma V S, back to top"><span aria-hidden="true">RV</span></a>
-      <nav class="site-nav" id="site-nav" aria-label="Main">
+  <!-- Floating navigation -->
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <a href="#top" class="mark" aria-label="Rukma V S, back to top">RV</a>
+      <div class="nav-links" id="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn btn-small header-cta" href="assets/Rukma_VS_Software_Test_Engineer_Resume.pdf" download>Resume</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      </div>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="btn btn-sm" href="assets/Rukma_VS_Software_Test_Engineer_Resume.pdf" download>Resume</a>
+      <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
         <span></span><span></span>
       </button>
-    </div>
+    </nav>
   </header>
 
   <main id="main">
     <!-- Hero -->
     <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="status"><span class="dot" aria-hidden="true"></span>Associate Quality Analyst at Letmedoit Technologies</p>
-          <h1>Rukma V S</h1>
-          <p class="role">Software Test Engineer</p>
-          <p class="lead">I test enterprise web and mobile applications across ERP, HRMS and project management platforms, turning complex business logic into rigorous test scenarios.</p>
-          <div class="actions">
+      <div class="container">
+        <p class="chip"><span class="pulse" aria-hidden="true"></span>Associate Quality Analyst · Letmedoit Technologies</p>
+        <h1 class="hero-name">Rukma V S</h1>
+        <div class="hero-row">
+          <p class="hero-role">Software Test Engineer turning complex business logic into <em>rigorous</em> test scenarios.</p>
+          <div class="hero-actions">
             <a class="btn" href="assets/Rukma_VS_Software_Test_Engineer_Resume.pdf" download>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Download resume
             </a>
-            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <dl class="facts" aria-label="At a glance">
-          <div><dt>Experience</dt><dd>1 yr 8+ mo</dd></div>
-          <div><dt>Domains</dt><dd>ERP · HRMS · PM</dd></div>
-          <div><dt>Way of working</dt><dd>Agile / Scrum</dd></div>
-          <div><dt>Based in</dt><dd>Ernakulam, Kerala</dd></div>
-        </dl>
       </div>
     </section>
 
-    <!-- About -->
-    <section class="section" id="about">
-      <div class="container two-col">
-        <div class="section-head">
-          <p class="eyebrow">About</p>
-          <h2>Professional summary</h2>
-        </div>
-        <div class="prose">
-          <p>Detail-oriented Quality Assurance Tester with <strong>1 year 8+ months</strong> of experience in Agile/Scrum environments, specializing in enterprise web and mobile applications across ERP, HRMS, and Project Management platforms.</p>
-          <p>Skilled across the complete Software Testing Life Cycle (STLC), including functional, integration, regression, smoke, sanity, exploratory, and end-to-end testing. Hands-on experience in REST API testing via Postman, backend SQL data verification, and UI test automation using Playwright with TypeScript.</p>
-          <p>Adept at translating complex business logic into rigorous test scenarios, logging detailed defects, and collaborating with cross-functional teams to ensure high-quality software releases.</p>
+    <!-- Bento overview -->
+    <section class="bento-section" id="about" aria-label="About">
+      <div class="container">
+        <div class="bento">
+          <article class="card c-about reveal">
+            <p class="kicker">About</p>
+            <p class="about-lead">Detail-oriented Quality Assurance Tester with <strong>1 year 8+ months</strong> of experience in Agile/Scrum environments, specializing in enterprise web and mobile applications across ERP, HRMS, and Project Management platforms.</p>
+            <p class="about-more">Skilled across the complete Software Testing Life Cycle (STLC), including functional, integration, regression, smoke, sanity, exploratory, and end-to-end testing. Hands-on experience in REST API testing via Postman, backend SQL data verification, and UI test automation using Playwright with TypeScript. Adept at logging detailed defects and collaborating with cross-functional teams to ensure high-quality software releases.</p>
+          </article>
+
+          <article class="card c-code reveal" aria-label="Profile summary written as a Playwright test">
+            <div class="code-bar"><span></span><span></span><span></span><code>profile.spec.ts</code></div>
+<pre class="code"><code><span class="k">import</span> { test, expect } <span class="k">from</span> <span class="s">'@playwright/test'</span>;
+
+<span class="f">test</span>(<span class="s">'Rukma V S ships quality'</span>, <span class="k">async</span> () =&gt; {
+  <span class="f">expect</span>(rukma.experience)
+    .<span class="f">toBe</span>(<span class="s">'1 year 8+ months'</span>);
+  <span class="f">expect</span>(rukma.domains)
+    .<span class="f">toEqual</span>([<span class="s">'ERP'</span>, <span class="s">'HRMS'</span>, <span class="s">'PM'</span>]);
+  <span class="f">expect</span>(rukma.stack)
+    .<span class="f">toContain</span>(<span class="s">'Playwright + TypeScript'</span>);
+});</code></pre>
+            <p class="run"><span class="pass">✓</span> 1 passed <span class="muted">· chromium</span></p>
+          </article>
+
+          <article class="card c-stat reveal">
+            <p class="stat-num">1.8<span>+</span></p>
+            <p class="stat-label">Years of QA experience</p>
+          </article>
+          <article class="card c-stat reveal">
+            <p class="stat-num">4</p>
+            <p class="stat-label">Key enterprise projects</p>
+          </article>
+          <article class="card c-stat reveal">
+            <p class="stat-num">3</p>
+            <p class="stat-label">Domains: ERP, HRMS, Project Management</p>
+          </article>
+
+          <article class="card c-tools reveal">
+            <p class="kicker">Toolbox</p>
+            <ul class="tool-list">
+              <li>Playwright</li><li>TypeScript</li><li>Postman</li><li>Swagger</li><li>SQL</li><li>TestRail</li><li>JIRA</li><li>VS Code</li>
+            </ul>
+          </article>
+
+          <article class="card c-place reveal">
+            <p class="kicker">Based in</p>
+            <p class="place">North Paravur,<br>Ernakulam, Kerala</p>
+            <p class="muted small">Platforms: Web · Android · Windows</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section class="section section-alt" id="skills">
+    <section class="section" id="skills">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Skills</p>
+        <header class="sec-head reveal">
+          <p class="kicker">Skills</p>
           <h2>Core competencies &amp; technical skills</h2>
-        </div>
-        <div class="skill-grid">
-          <article class="skill-card">
+        </header>
+        <div class="skills">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5h6M8 3.5h8v3H8zM6 5H5v15h14V5h-1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.5 12 1.7 1.7 3.3-3.4M8.5 16.5h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <h3>Testing disciplines</h3>
-            <ul class="tags">
-              <li>Functional</li><li>Integration</li><li>Regression</li><li>Smoke &amp; Sanity</li><li>End-to-End (E2E)</li><li>Exploratory</li><li>Risk-Based Testing</li><li>Cross-Browser &amp; Mobile</li>
-            </ul>
+            <ul class="tags"><li>Functional</li><li>Integration</li><li>Regression</li><li>Smoke &amp; Sanity</li><li>End-to-End (E2E)</li><li>Exploratory</li><li>Risk-Based Testing</li><li>Cross-Browser &amp; Mobile</li></ul>
           </article>
-          <article class="skill-card">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 8-4 4 4 4M15 8l4 4-4 4M13.2 6.5l-2.4 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <h3>API &amp; database testing</h3>
-            <ul class="tags">
-              <li>REST API validation</li><li>Postman</li><li>Swagger</li><li>SQL data verification</li><li>Data integrity &amp; transaction testing</li>
-            </ul>
+            <ul class="tags"><li>REST API validation</li><li>Postman</li><li>Swagger</li><li>SQL data verification</li><li>Data integrity &amp; transaction testing</li></ul>
           </article>
-          <article class="skill-card">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 9h8M8 13h5M8 17h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
             <h3>Test management &amp; Agile</h3>
-            <ul class="tags">
-              <li>Test scenarios</li><li>Detailed test cases</li><li>Defect life cycle &amp; retesting</li><li>TestRail</li><li>Agile/Scrum ceremonies</li>
-            </ul>
+            <ul class="tags"><li>Test scenarios</li><li>Detailed test cases</li><li>Defect life cycle &amp; retesting</li><li>TestRail</li><li>Agile/Scrum ceremonies</li></ul>
           </article>
-          <article class="skill-card">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7V4M9.5 12.5h.01M14.5 12.5h.01M2.5 11v3M21.5 11v3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
             <h3>Automation &amp; tools</h3>
-            <ul class="tags">
-              <li>Playwright + TypeScript</li><li>VS Code</li>
-            </ul>
+            <ul class="tags"><li>Playwright + TypeScript</li><li>VS Code</li></ul>
           </article>
-          <article class="skill-card">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
             <h3>Domain experience</h3>
-            <ul class="tags">
-              <li>Enterprise ERP</li><li>HRMS</li><li>Project Management &amp; Task Tracking</li>
-            </ul>
+            <ul class="tags"><li>Enterprise ERP</li><li>HRMS</li><li>Project Management &amp; Task Tracking</li></ul>
           </article>
-          <article class="skill-card">
+          <article class="card skill reveal">
+            <span class="skill-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 18h5M9.5 14v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="16" y="9" width="5.5" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span>
             <h3>Platforms &amp; environments</h3>
-            <ul class="tags">
-              <li>Web</li><li>Mobile (Android)</li><li>Windows</li>
-            </ul>
+            <ul class="tags"><li>Web</li><li>Mobile (Android)</li><li>Windows</li></ul>
           </article>
         </div>
       </div>
@@ -129,79 +164,79 @@
 
     <!-- Experience -->
     <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Experience</p>
+      <div class="container exp-grid">
+        <header class="sec-head sticky reveal">
+          <p class="kicker">Experience</p>
           <h2>Professional experience</h2>
-        </div>
+          <p class="muted">Letmedoit Technologies Pvt. Ltd., Angamaly, Kerala</p>
+        </header>
         <ol class="timeline">
-          <li class="job">
-            <div class="job-meta">
-              <p class="job-dates">Jan 2025 – Present</p>
-              <p class="job-place">Angamaly, Kerala</p>
+          <li class="card job reveal">
+            <div class="job-top">
+              <div>
+                <h3>Associate Quality Analyst</h3>
+                <p class="job-co">Letmedoit Technologies Pvt. Ltd. · Angamaly, Kerala</p>
+              </div>
+              <span class="date">Jan 2025 – Present</span>
             </div>
-            <div class="job-body">
-              <h3>Associate Quality Analyst</h3>
-              <p class="job-company">Letmedoit Technologies Pvt. Ltd.</p>
-              <ul class="bullets">
-                <li>Perform end-to-end functional, integration, regression, smoke, sanity, and exploratory testing across enterprise ERP, HRMS, and Project Management platforms.</li>
-                <li>Translate business requirement documents and user stories into comprehensive test scenarios, test cases, and risk-based coverage matrices.</li>
-                <li>Validate core HRMS workflows, including employee profile onboarding, attendance tracking, leave management rules, and multi-tier approval hierarchies.</li>
-                <li>Verify project management solution capabilities such as task allocation, milestone tracking, resource utilization, role permissions, and status reporting dashboards.</li>
-                <li>Execute testing on the Garage360 ERP platform covering Operations, Inventory Management, and Accounting modules; verified tax logic, transaction ledgers, and billing calculations.</li>
-                <li>Validate REST APIs using Postman and Swagger to verify endpoint payloads, status codes, query parameters, and response schemas.</li>
-                <li>Execute SQL queries to validate backend transactions, ledger updates, database state changes, and data persistence.</li>
-                <li>Log, track, and retest defects with step-by-step reproduction notes, expected vs. actual outcomes, logs, and screenshots.</li>
-                <li>Build and maintain automated UI regression scripts using Playwright with TypeScript to optimize testing cycles.</li>
-              </ul>
-            </div>
+            <ul class="bullets">
+              <li>Perform end-to-end functional, integration, regression, smoke, sanity, and exploratory testing across enterprise ERP, HRMS, and Project Management platforms.</li>
+              <li>Translate business requirement documents and user stories into comprehensive test scenarios, test cases, and risk-based coverage matrices.</li>
+              <li>Validate core HRMS workflows, including employee profile onboarding, attendance tracking, leave management rules, and multi-tier approval hierarchies.</li>
+              <li>Verify project management solution capabilities such as task allocation, milestone tracking, resource utilization, role permissions, and status reporting dashboards.</li>
+              <li>Execute testing on the Garage360 ERP platform covering Operations, Inventory Management, and Accounting modules; verified tax logic, transaction ledgers, and billing calculations.</li>
+              <li>Validate REST APIs using Postman and Swagger to verify endpoint payloads, status codes, query parameters, and response schemas.</li>
+              <li>Execute SQL queries to validate backend transactions, ledger updates, database state changes, and data persistence.</li>
+              <li>Log, track, and retest defects with step-by-step reproduction notes, expected vs. actual outcomes, logs, and screenshots.</li>
+              <li>Build and maintain automated UI regression scripts using Playwright with TypeScript to optimize testing cycles.</li>
+            </ul>
           </li>
-          <li class="job">
-            <div class="job-meta">
-              <p class="job-dates">Mar 2022 – May 2022</p>
-              <p class="job-place">Angamaly, Kerala</p>
+          <li class="card job reveal">
+            <div class="job-top">
+              <div>
+                <h3>QA Intern</h3>
+                <p class="job-co">Letmedoit Technologies Pvt. Ltd. · Angamaly, Kerala</p>
+              </div>
+              <span class="date">Mar 2022 – May 2022</span>
             </div>
-            <div class="job-body">
-              <h3>QA Intern</h3>
-              <p class="job-company">Letmedoit Technologies Pvt. Ltd.</p>
-              <ul class="bullets">
-                <li>Executed functional, usability, and UI sanity checks across web applications to catch defects early in sprint cycles.</li>
-                <li>Assisted senior QA engineers in preparing test checklists, scenario breakdowns, and bug verification passes.</li>
-                <li>Collaborated with developers to clarify issue steps, recreate intermittent errors, and confirm resolved bug tickets.</li>
-                <li>Documented test execution results, logged observations, and presented weekly QA status logs.</li>
-              </ul>
-            </div>
+            <ul class="bullets">
+              <li>Executed functional, usability, and UI sanity checks across web applications to catch defects early in sprint cycles.</li>
+              <li>Assisted senior QA engineers in preparing test checklists, scenario breakdowns, and bug verification passes.</li>
+              <li>Collaborated with developers to clarify issue steps, recreate intermittent errors, and confirm resolved bug tickets.</li>
+              <li>Documented test execution results, logged observations, and presented weekly QA status logs.</li>
+            </ul>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- Projects -->
-    <section class="section section-alt" id="projects">
+    <section class="section" id="projects">
       <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Projects</p>
+        <header class="sec-head reveal">
+          <p class="kicker">Projects</p>
           <h2>Key projects</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project">
-            <p class="project-tag">HRMS</p>
+        </header>
+        <div class="projects">
+          <article class="card project reveal">
+            <div class="p-top"><span class="tag">HRMS</span><span class="p-num">01</span></div>
             <h3>Enterprise HRMS Solution</h3>
             <p>Tested core human resource workflows including employee master data, leave policies, attendance tracking, role-based access control, and self-service approval pipelines.</p>
           </article>
-          <article class="project">
-            <p class="project-tag">Project Management</p>
+          <article class="card project reveal">
+            <div class="p-top"><span class="tag">Project Management</span><span class="p-num">02</span></div>
             <h3>Project Management &amp; Tracking Solution</h3>
             <p>Validated task lifecycles, project boards, time logs, milestone schedules, dependency workflows, and management reporting views.</p>
           </article>
-          <article class="project">
-            <p class="project-tag">ERP</p>
+          <article class="card project reveal">
+            <div class="p-top"><span class="tag">ERP</span><span class="p-num">03</span></div>
             <h3>Garage360 ERP Platform</h3>
             <p>Conducted in-depth testing across Operations, Inventory, and Accounting modules; validated vehicle service pipelines, parts allocation, invoicing, and ledger balance consistency.</p>
           </article>
-          <article class="project">
-            <p class="project-tag">Telecom</p>
-            <h3>Tower Management System <span class="sub">SpotOn GIL &amp; TalkPool</span></h3>
+          <article class="card project reveal">
+            <div class="p-top"><span class="tag">Telecom</span><span class="p-num">04</span></div>
+            <h3>Tower Management System</h3>
+            <p class="p-client">SpotOn GIL &amp; TalkPool</p>
             <p>Tested telecom site allocation workflows, role-based security configurations, field-level data validation rules, and automated status-reporting pipelines.</p>
           </article>
         </div>
@@ -210,34 +245,34 @@
 
     <!-- Education -->
     <section class="section" id="education">
-      <div class="container two-col">
-        <div class="section-head">
-          <p class="eyebrow">Education</p>
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="kicker">Education</p>
           <h2>Education &amp; certifications</h2>
-        </div>
-        <div>
-          <ul class="edu-list">
-            <li>
-              <div><h3>Bachelor of Computer Applications (BCA)</h3><p>MG University, Kerala</p></div>
-              <span class="badge">2020</span>
-            </li>
-            <li>
-              <div><h3>Software Testing Specialist</h3><p>National Council for Technology and Training (Luminar Technolab, Kakkanad)</p></div>
-              <span class="badge">Certified</span>
-            </li>
-            <li>
-              <div><h3>Manual Software Testing + Agile with JIRA</h3></div>
-              <span class="badge">Completed</span>
-            </li>
-          </ul>
-          <div class="languages">
-            <h3>Languages</h3>
+        </header>
+        <div class="edu">
+          <article class="card edu-card reveal">
+            <span class="date">2020</span>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p class="muted">MG University, Kerala</p>
+          </article>
+          <article class="card edu-card reveal">
+            <span class="date">Certified</span>
+            <h3>Software Testing Specialist</h3>
+            <p class="muted">National Council for Technology and Training (Luminar Technolab, Kakkanad)</p>
+          </article>
+          <article class="card edu-card reveal">
+            <span class="date">Completed</span>
+            <h3>Manual Software Testing + Agile with JIRA</h3>
+          </article>
+          <article class="card edu-card langs reveal">
+            <span class="date">Languages</span>
             <ul>
-              <li><span>English</span><span>Fluent</span></li>
-              <li><span>Malayalam</span><span>Native proficiency</span></li>
-              <li><span>Hindi</span><span>Basic working knowledge</span></li>
+              <li><b>English</b><span>Fluent</span></li>
+              <li><b>Malayalam</b><span>Native proficiency</span></li>
+              <li><b>Hindi</b><span>Basic working knowledge</span></li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -245,12 +280,10 @@
     <!-- Contact -->
     <section class="section contact" id="contact">
       <div class="container">
-        <div class="contact-card">
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2>Let's talk about your next release.</h2>
-            <p class="contact-lead">Open to QA and software testing roles. The quickest way to reach me is by email.</p>
-          </div>
+        <div class="card contact-card reveal">
+          <p class="kicker">Contact</p>
+          <h2 class="contact-title">Let's build <em>reliable</em> software together.</h2>
+          <a class="big-mail" href="mailto:rukmasudheer1999@gmail.com">rukmasudheer1999@gmail.com <span aria-hidden="true">↗</span></a>
           <ul class="contact-list">
             <li>
               <span class="label">Email</span>
@@ -265,10 +298,7 @@
             <li>
               <span class="label">LinkedIn</span>
               <a href="https://www.linkedin.com/in/rukmavs1" target="_blank" rel="noopener">linkedin.com/in/rukmavs1</a>
-            </li>
-            <li>
-              <span class="label">Location</span>
-              <span>North Paravur, Ernakulam, Kerala</span>
+              <span></span>
             </li>
           </ul>
         </div>
@@ -276,9 +306,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Rukma V S</p>
+      <p>© <span id="year">2026</span> Rukma V S · Software Test Engineer</p>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>

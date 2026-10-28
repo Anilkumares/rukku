@@ -1,39 +1,68 @@
 (() => {
-  const header = document.querySelector('.site-header');
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  const links = [...nav.querySelectorAll('a')];
+  const root = document.documentElement;
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.getElementById('nav-links');
+  const navAnchors = [...links.querySelectorAll('a')];
 
-  // Mobile menu
+  /* Mobile menu */
   const closeMenu = () => {
-    nav.classList.remove('open');
+    links.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
   };
   toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+    const open = links.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  links.forEach((a) => a.addEventListener('click', closeMenu));
+  navAnchors.forEach((a) => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+    if (!links.contains(e.target) && !toggle.contains(e.target)) closeMenu();
   });
 
-  // Header border + active section
-  const sections = links.map((a) => document.querySelector(a.getAttribute('href')));
+  /* Theme toggle (dark by default, follows the system until the visitor chooses) */
+  const themeBtn = document.querySelector('.theme-toggle');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
+  const currentTheme = () => root.getAttribute('data-theme') || (prefersLight.matches ? 'light' : 'dark');
+  const syncThemeLabel = () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    themeBtn.setAttribute('aria-label', `Switch to ${next} theme`);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', currentTheme() === 'dark' ? '#0a0b10' : '#f5f5f2');
+  };
+  themeBtn.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (_) { /* storage unavailable */ }
+    syncThemeLabel();
+  });
+  prefersLight.addEventListener?.('change', syncThemeLabel);
+  syncThemeLabel();
+
+  /* Active section in the nav */
+  const sections = navAnchors.map((a) => document.querySelector(a.getAttribute('href')));
   const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 8);
-    const y = window.scrollY + window.innerHeight * 0.3;
+    const y = window.scrollY + window.innerHeight * 0.35;
     let active = -1;
     sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
-    links.forEach((a, i) => a.classList.toggle('active', i === active));
+    navAnchors.forEach((a, i) => a.classList.toggle('active', i === active));
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Copy buttons
+  /* Cursor spotlight on cards */
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+  }
+
+  /* Copy buttons */
   document.querySelectorAll('.copy').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const text = btn.dataset.copy;
@@ -52,7 +81,7 @@
     });
   });
 
-  // Footer year
+  /* Footer year */
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
