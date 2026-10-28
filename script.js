@@ -51,6 +51,26 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* Reveal cards once as they enter the viewport */
+  const revealEls = [...document.querySelectorAll('.reveal')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    root.classList.add('js');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach((el) => {
+      // Anything already on screen at load shows immediately
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      else io.observe(el);
+    });
+    // Safety net: never leave content hidden (e.g. jump links, print, odd browsers)
+    window.addEventListener('hashchange', () => revealEls.forEach((el) => el.classList.add('in')));
+    window.addEventListener('beforeprint', () => revealEls.forEach((el) => el.classList.add('in')));
+  }
+
   /* Cursor spotlight on cards */
   if (window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.card').forEach((card) => {

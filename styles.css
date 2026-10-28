@@ -330,11 +330,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
   .hero-row { animation-delay: .14s; }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-  /* Scroll-driven reveal where supported (CSS only, no JS) */
-  @supports (animation-timeline: view()) {
-    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
-    @keyframes reveal { from { opacity: 0; transform: translateY(28px) scale(.985); } to { opacity: 1; transform: none; } }
-  }
+  /* One-time reveal: only hidden once the script has marked the page (html.js),
+     and shown again as soon as a card is a few pixels into view. */
+  .js .reveal { transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+  .js .reveal:not(.in) { opacity: 0; transform: translateY(22px); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
